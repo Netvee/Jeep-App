@@ -27,6 +27,7 @@ const L200 = "/vehicles/mitsubishi-l200-5";
 const PAJERO = "/vehicles/mitsubishi-pajero-v80";
 const NAVARA = "/vehicles/nissan-navara-d23";
 const PATROL_Y61 = "/vehicles/nissan-patrol-y61";
+const JIMNY = "/vehicles/suzuki-jimny-jb74";
 
 /** Later zones sit on top of earlier ones, so small parts come after the large areas around them. */
 export const PHOTO_SETS: Record<string, PhotoSet> = {
@@ -1360,6 +1361,100 @@ export const PHOTO_SETS: Record<string, PhotoSet> = {
       },
     },
   },
+  "suzuki-jimny-jb74": {
+    key: "suzuki-jimny-jb74",
+    label: "סוזוקי ג׳ימני JB74",
+    note: "איור להמחשה של ג׳ימני JB74 שלוש דלתות (חזית ואחור במבט אלכסוני) — לא תמונה של הרכב שלכם ולא של גרסה מסוימת.",
+    views: {
+      side: {
+        src: `${JIMNY}/side.webp`,
+        w: 705,
+        h: 394,
+        zones: [
+          ["roof_rack", 0.37, 0.05, 0.9, 0.13],
+          ["rear_storage", 0.67, 0.15, 0.88, 0.35],
+          ["engine", 0.02, 0.25, 0.3, 0.38],
+          ["lighting", 0.02, 0.38, 0.06, 0.5],
+          ["lighting", 0.88, 0.57, 0.92, 0.66],
+          ["spare", 0.9, 0.18, 1, 0.65],
+          ["front_bumper", 0, 0.5, 0.08, 0.65],
+          ["tyres", 0.05, 0.6, 0.29, 1],
+          ["tyres", 0.66, 0.6, 0.89, 1],
+          ["front_suspension", 0.05, 0.5, 0.29, 0.6],
+          ["rear_suspension", 0.66, 0.5, 0.89, 0.6],
+          ["brakes", 0.14, 0.75, 0.2, 0.88],
+          ["brakes", 0.75, 0.75, 0.81, 0.88],
+          ["rock_sliders", 0.31, 0.66, 0.65, 0.73],
+        ],
+      },
+      front: {
+        // three-quarter front view
+        src: `${JIMNY}/front.webp`,
+        w: 693,
+        h: 549,
+        zones: [
+          ["roof_rack", 0.32, 0.02, 0.97, 0.22],
+          ["engine", 0.06, 0.32, 0.6, 0.45],
+          ["air_intake", 0.28, 0.37, 0.48, 0.42],
+          ["front_bumper", 0, 0.6, 0.47, 0.82],
+          ["cooling", 0.11, 0.47, 0.33, 0.62],
+          ["lighting", 0.05, 0.46, 0.11, 0.58],
+          ["lighting", 0.33, 0.52, 0.4, 0.64],
+          ["lighting", 0.36, 0.71, 0.42, 0.79],
+          ["tyres", 0.42, 0.66, 0.64, 1],
+          ["tyres", 0.8, 0.53, 0.98, 0.85],
+          ["tyres", 0.02, 0.73, 0.2, 0.86],
+          ["front_suspension", 0.44, 0.58, 0.64, 0.67],
+          ["brakes", 0.5, 0.79, 0.57, 0.91],
+          ["rock_sliders", 0.63, 0.66, 0.8, 0.75],
+        ],
+      },
+      rear: {
+        // three-quarter rear view
+        src: `${JIMNY}/rear.webp`,
+        w: 688,
+        h: 507,
+        zones: [
+          ["roof_rack", 0.23, 0, 0.88, 0.17],
+          ["rear_storage", 0.58, 0.17, 0.88, 0.37],
+          ["spare", 0.67, 0.33, 0.93, 0.66],
+          ["lighting", 0.58, 0.65, 0.68, 0.72],
+          ["lighting", 0.86, 0.62, 0.95, 0.69],
+          ["recovery_points", 0.5, 0.6, 1, 0.76],
+          ["tyres", 0, 0.47, 0.19, 0.84],
+          ["tyres", 0.37, 0.68, 0.57, 1],
+          ["tyres", 0.78, 0.76, 0.96, 0.92],
+          ["rear_suspension", 0.37, 0.6, 0.54, 0.69],
+          ["rock_sliders", 0.17, 0.66, 0.37, 0.76],
+          ["brakes", 0.43, 0.8, 0.5, 0.92],
+        ],
+      },
+      under: {
+        // seen from below, front of the vehicle on the left like the side view
+        src: `${JIMNY}/under.webp`,
+        w: 727,
+        h: 344,
+        zones: [
+          ["tyres", 0.06, 0, 0.26, 0.17],
+          ["tyres", 0.06, 0.83, 0.26, 1],
+          ["tyres", 0.64, 0, 0.84, 0.17],
+          ["tyres", 0.64, 0.83, 0.84, 1],
+          ["front_bumper", 0, 0.15, 0.05, 0.85],
+          ["steering", 0.07, 0.25, 0.11, 0.75],
+          ["front_axle", 0.12, 0.15, 0.19, 0.85],
+          ["front_suspension", 0.12, 0.17, 0.19, 0.33],
+          ["front_suspension", 0.12, 0.67, 0.19, 0.83],
+          ["transfer_case", 0.3, 0.4, 0.4, 0.58],
+          ["driveshafts", 0.4, 0.45, 0.72, 0.53],
+          ["driveshafts", 0.19, 0.45, 0.3, 0.53],
+          ["rear_axle", 0.72, 0.15, 0.79, 0.85],
+          ["rear_suspension", 0.72, 0.17, 0.79, 0.33],
+          ["rear_suspension", 0.72, 0.67, 0.79, 0.83],
+          ["spare", 0.92, 0.22, 1, 0.78],
+        ],
+      },
+    },
+  },
 };
 
 /** Where the image sits in the W×H stage: as large as fits, wheels on the ground line. */
@@ -1396,6 +1491,7 @@ export function photoSetFor(input: { generationSlug?: string | null; make?: stri
   if (/pajero|פג.?רו|montero/i.test(text) && !/sport|ספורט/i.test(text) && (input.year ?? 0) >= 2007 && (input.year ?? 0) <= 2021) return "mitsubishi-pajero-v80";
   if (/navara|נווארה|נברה|np300/i.test(text) && (input.year ?? 0) >= 2015) return "nissan-navara-d23";
   if (/patrol|פטרול/i.test(text) && (/y61/i.test(text) || (input.year && input.year >= 1998 && input.year <= 2009))) return "nissan-patrol-y61";
+  if (/jimny|ג.?ימני/i.test(text) && (input.year ?? 0) >= 2018) return "suzuki-jimny-jb74";
   // WL replaced the WK2 for model year 2022
   if (/grand.?cherokee|גרנד/i.test(text) && (input.year ?? 0) >= 2022) return "jeep-grand-cherokee-wl";
   if (/gladiator|גלדיאטור/i.test(text) && (input.year ?? 0) >= 2020) return "jeep-gladiator-jt";
