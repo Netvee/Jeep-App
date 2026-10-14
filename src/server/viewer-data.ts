@@ -2,6 +2,7 @@ import type { Db } from "@/db/client";
 import type { ViewerData } from "@/components/vehicle/viewer";
 import { COMPONENTS, SPEC_LABELS, type OverlayKey } from "@/lib/components";
 import { ARCHETYPES } from "@/components/vehicle/geometry";
+import { photoSetFor } from "@/components/vehicle/photo-sets";
 import { archetypeFor, buildShape } from "@/lib/vehicle-shape";
 import { PROVENANCE_LABEL, UPGRADE_STATUS_LABEL } from "@/lib/labels";
 import { formatDate, formatKm } from "@/lib/units";
@@ -99,6 +100,7 @@ export async function buildViewerData(db: Db, userId: string, vehicle: Vehicle, 
     plannedShape,
     archetypeLabel: ARCHETYPES[archetype].label,
     linkedToCatalogue: !!bundle,
+    photoSet: photoSetFor({ generationSlug: bundle?.generation.slug, make: vehicle.make, model: vehicle.model, year: vehicle.year }),
     installed: installed.map(toViewer),
     planned: planned.map(toViewer),
     factory,

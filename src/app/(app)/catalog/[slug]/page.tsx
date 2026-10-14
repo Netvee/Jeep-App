@@ -6,6 +6,8 @@ import * as s from "@/db/schema";
 import { getGarage } from "@/server/context";
 import { Card, PageHeader, Badge, ProvenanceBadge, Notice, LinkButton, ExternalLink } from "@/components/ui";
 import { VehicleSvg } from "@/components/vehicle/drawing";
+import { VehiclePhoto } from "@/components/vehicle/photo";
+import { PHOTO_SETS } from "@/components/vehicle/photo-sets";
 import { buildShape } from "@/lib/vehicle-shape";
 import { ARCHETYPES } from "@/components/vehicle/geometry";
 import { SPEC_LABELS } from "@/lib/components";
@@ -107,6 +109,13 @@ export default async function GenerationPage({ params }: { params: Promise<{ slu
                   {vs[0]?.sourceRef && <p className="text-xs text-charcoal-500 mt-2">מקור: {vs[0].sourceRef}</p>}
                 </div>
                 <div>
+                  {PHOTO_SETS[slug] ? (
+                    <>
+                      <VehiclePhoto set={slug} alt={`איור להמחשה של ${row.model.nameHe} ${row.gen.code}`} className="w-full h-auto bg-sand-50 rounded-xl p-3" />
+                      <p className="text-[11px] text-charcoal-500 text-center">איור להמחשה של הדור — לא תמונה של הגרסה</p>
+                    </>
+                  ) : (
+                    <>
                   <VehicleSvg
                     view="side"
                     shape={buildShape({ archetype: v.archetype, wheelbaseMm: wb ? Number(wb.value) : null, tyreSize: vs.find((x) => x.key === "factory_tyre")?.value ?? null, liftCm: 0, body: v.body })}
@@ -115,6 +124,8 @@ export default async function GenerationPage({ params }: { params: Promise<{ slu
                     className="w-full bg-sand-50 rounded-xl"
                   />
                   <p className="text-[11px] text-charcoal-500 text-center">איור כללי ({ARCHETYPES[v.archetype].label}) — לא תמונה של הגרסה</p>
+                    </>
+                  )}
                 </div>
               </Card>
             </li>

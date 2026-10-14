@@ -3,8 +3,7 @@ import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/server/auth";
 import { Logo } from "@/components/logo";
 import { buttonClass } from "@/components/ui";
-import { VehicleSvg } from "@/components/vehicle/drawing";
-import { buildShape } from "@/lib/vehicle-shape";
+import { VehiclePhoto } from "@/components/vehicle/photo";
 import { demoLoginAction } from "@/app/actions/auth";
 import { Car, Wrench, Route, Settings2, FileText, ShieldCheck } from "lucide-react";
 
@@ -13,7 +12,6 @@ export const dynamic = "force-dynamic";
 export default async function Home() {
   const user = await getCurrentUser();
   if (user) redirect("/garage");
-  const shape = buildShape({ archetype: "boxy-long", wheelbaseMm: 3008, tyreSize: "285/70R17", liftCm: 5, body: "suv-4door" });
   const features = [
     { icon: Car, title: "הגראז׳ שלי", text: "כמה רכבים, פרופיל מפורט שמאפשר ערכים לא ידועים, קילומטראז׳ מתוארך, מסמכים וקבלות." },
     { icon: Settings2, title: "מתכנן שדרוגים", text: "התאמה לפי גרסה מדויקת עם רמת ודאות, עלויות מפורקות — ועלויות לא ידועות נשארות לא ידועות." },
@@ -67,13 +65,7 @@ export default async function Home() {
               <svg viewBox="0 0 1000 200" className="absolute bottom-0 inset-x-0 w-full" aria-hidden preserveAspectRatio="none">
                 <path d="M0 140 L120 90 L260 130 L420 60 L560 120 L700 80 L860 130 L1000 100 L1000 200 L0 200 Z" fill="#2a2d30" />
               </svg>
-              <VehicleSvg
-                view="side"
-                shape={shape}
-                overlays={{ installed: new Set(["bumper", "winch", "roofrack", "sliders", "bigtyres", "recovery"]), planned: new Set(["snorkel"]) }}
-                title="איור כללי של רכב שטח עם שדרוגים מותקנים ושנורקל מתוכנן"
-                className="relative w-full"
-              />
+              <VehiclePhoto set="jeep-wrangler-jl" alt="" className="relative w-full h-auto drop-shadow-2xl" priority />
             </div>
           </div>
         </section>

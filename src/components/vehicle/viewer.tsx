@@ -6,6 +6,7 @@ import { ZoomIn, ZoomOut, RotateCcw, X, Info } from "lucide-react";
 import { COMPONENT_BY_KEY, SYSTEMS, VIEWS, SYSTEM_BY_KEY, type OverlayKey, type SystemKey, type ViewKey } from "@/lib/components";
 import { SideView, FrontView, RearView, UnderView, type OverlayState } from "./drawing";
 import { hotspots, W, H, type ShapeInput } from "./geometry";
+import { PHOTO_SETS, photoBox, photoHotspots, type PhotoSet } from "./photo-sets";
 import { cx, Badge, DemoBadge, FitmentBadge } from "@/components/ui";
 import type { FitmentStatus } from "@/db/schema";
 import { addInspectionTaskAction } from "@/app/actions/maintenance";
@@ -31,6 +32,8 @@ export type ViewerData = {
   plannedShape: ShapeInput;
   archetypeLabel: string;
   linkedToCatalogue: boolean;
+  /** key into PHOTO_SETS when an illustration exists for this generation */
+  photoSet: string | null;
   installed: ViewerUpgrade[];
   planned: ViewerUpgrade[];
   factory: Record<string, ViewerFactory[]>;
@@ -47,6 +50,9 @@ export function VehicleViewer({ data, compact = false }: { data: ViewerData; com
   const [system, setSystem] = useState<SystemKey | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [hidden, setHidden] = useState<Set<string>>(new Set());
+  const photoSet = data.photoSet ? (PHOTO_SETS[data.photoSet] ?? null) : null;
+  const [usePhoto, setUsePhoto] = useState(true);
+  const photo = photoSet && usePhoto ? photoSet : null;
 
   const installedOverlays = useMemo(
     () => new Set(data.installed.filter((u) => u.overlay && !hidden.has(u.id)).map((u) => u.overlay!)),
@@ -78,6 +84,26 @@ export function VehicleViewer({ data, compact = false }: { data: ViewerData; com
             </button>
           ))}
         </div>
+        {photoSet && (
+          <div role="radiogroup" aria-label="סוג איור" className="inline-flex rounded-xl bg-sand-100 p-1">
+            {(
+              [
+                [true, "איור"],
+                [false, "שרטוט"],
+              ] as const
+            ).map(([k, l]) => (
+              <button
+                key={l}
+                role="radio"
+                aria-checked={usePhoto === k}
+                onClick={() => setUsePhoto(k)}
+                className={cx("rounded-lg px-3 min-h-10 text-sm font-medium", usePhoto === k ? "bg-white shadow-sm text-charcoal-900" : "text-charcoal-600 hover:text-charcoal-900")}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
+        )}
         <div role="radiogroup" aria-label="מצב תצוגה" className="inline-flex rounded-xl bg-sand-100 p-1">
           {(
             [
@@ -125,11 +151,12 @@ export function VehicleViewer({ data, compact = false }: { data: ViewerData; com
         <div className="min-w-0">
           {mode === "compare" ? (
             <div className="grid gap-3 sm:grid-cols-2">
-              <Stage title="נוכחי (מותקן)" view={view} shape={currentShape} overlays={current} system={system} selected={selected} onSelect={setSelected} installedKeys={componentsWithInstalled} plannedKeys={new Set()} small />
-              <Stage title="אחרי התוכנית" view={view} shape={data.plannedShape} overlays={{ installed: new Set([...installedOverlays, ...plannedOverlays]), planned: new Set() }} system={system} selected={selected} onSelect={setSelected} installedKeys={componentsWithInstalled} plannedKeys={componentsWithPlanned} small />
+              <Stage title="נוכחי (מותקן)" photo={photo} view={view} shape={currentShape} overlays={current} system={system} selected={selected} onSelect={setSelected} installedKeys={componentsWithInstalled} plannedKeys={new Set()} small />
+              <Stage title="אחרי התוכנית" photo={photo} view={view} shape={data.plannedShape} overlays={{ installed: new Set([...installedOverlays, ...plannedOverlays]), planned: new Set() }} system={system} selected={selected} onSelect={setSelected} installedKeys={componentsWithInstalled} plannedKeys={componentsWithPlanned} small />
             </div>
           ) : (
             <Stage
+              photo={photo}
               view={view}
               shape={mode === "preview" ? data.plannedShape : currentShape}
               overlays={mode === "preview" ? preview : current}
@@ -140,7 +167,7 @@ export function VehicleViewer({ data, compact = false }: { data: ViewerData; com
               plannedKeys={mode === "preview" ? componentsWithPlanned : new Set()}
             />
           )}
-          <Disclaimer label={data.archetypeLabel} linked={data.linkedToCatalogue} />
+          <Disclaimer label={data.archetypeLabel} linked={data.linkedToCatalogue} photo={photo} />
           {mode === "compare" && <CompareList data={data} />}
           {data.installed.length > 0 && mode !== "compare" && (
             <fieldset className="mt-3">
@@ -181,7 +208,16 @@ export function VehicleViewer({ data, compact = false }: { data: ViewerData; com
   );
 }
 
-function Disclaimer({ label, linked }: { label: string; linked: boolean }) {
+function Disclaimer({ label, linked, photo }: { label: string; linked: boolean; photo: PhotoSet | null }) {
+  if (photo)
+    return (
+      <p className="mt-2 flex gap-2 text-xs text-charcoal-500 leading-relaxed">
+        <Info size={14} className="shrink-0 mt-0.5" aria-hidden />
+        <span>
+          {photo.note} שדרוגים מסומנים בנקודות על הרכיב ואינם מצוירים על האיור, וההגבהה ומידת הצמיגים אינן משנות אותו — לתצוגה שלהם עברו ל״שרטוט״. אזורי ההקשה מקורבים.
+        </span>
+      </p>
+    );
   return (
     <p className="mt-2 flex gap-2 text-xs text-charcoal-500 leading-relaxed">
       <Info size={14} className="shrink-0 mt-0.5" aria-hidden />
@@ -194,6 +230,7 @@ function Disclaimer({ label, linked }: { label: string; linked: boolean }) {
 }
 
 function Stage({
+  photo,
   view,
   shape,
   overlays,
@@ -205,6 +242,7 @@ function Stage({
   title,
   small,
 }: {
+  photo: PhotoSet | null;
   view: ViewKey;
   shape: ShapeInput;
   overlays: OverlayState;
@@ -220,7 +258,8 @@ function Stage({
   const ref = useRef<HTMLDivElement>(null);
   const pointers = useRef(new Map<number, { x: number; y: number }>());
   const drag = useRef<{ moved: number; lastDist?: number } | null>(null);
-  const spots = useMemo(() => hotspots(view, shape), [view, shape]);
+  const photoView = photo?.views[view] ?? null;
+  const spots = useMemo(() => (photoView ? photoHotspots(photoView) : hotspots(view, shape)), [photoView, view, shape]);
   const Comp = ViewComp[view];
 
   const clamp = useCallback((n: { k: number; x: number; y: number }) => {
@@ -320,7 +359,11 @@ function Stage({
       >
         <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-full block" role="group" aria-label="איור רכב אינטראקטיבי">
           <g transform={`translate(${z.x} ${z.y}) scale(${z.k})`}>
-            <Comp shape={shape} overlays={overlays} />
+            {photoView ? (
+              <PhotoImage src={photoView.src} box={photoBox(photoView)} label={`${photo!.label} — ${VIEWS.find((v) => v.key === view)?.label}`} />
+            ) : (
+              <Comp shape={shape} overlays={overlays} />
+            )}
             {spots.map((h, i) => {
               const def = COMPONENT_BY_KEY[h.key];
               if (!def) return null;
@@ -398,6 +441,10 @@ function Stage({
       )}
     </figure>
   );
+}
+
+function PhotoImage({ src, box, label }: { src: string; box: { x: number; y: number; w: number; h: number }; label: string }) {
+  return <image href={src} x={box.x} y={box.y} width={box.w} height={box.h} preserveAspectRatio="xMidYMid meet" role="img" aria-label={label} />;
 }
 
 function IconBtn({ label, onClick, children }: { label: string; onClick: () => void; children: React.ReactNode }) {

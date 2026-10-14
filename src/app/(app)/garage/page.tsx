@@ -10,6 +10,7 @@ import { remindersFor, planTotals, PLANNED_STATUSES } from "@/server/summaries";
 import { buildViewerData } from "@/server/viewer-data";
 import { LazyVehicleViewer } from "@/components/vehicle/lazy-viewer";
 import { VehicleSvg } from "@/components/vehicle/drawing";
+import { VehiclePhoto } from "@/components/vehicle/photo";
 import { Card, CardHeader, Badge, DemoBadge, LinkButton, Notice, EmptyState, Stat } from "@/components/ui";
 import { ReminderLine, BudgetBar } from "@/components/domain";
 import { MileageForm } from "@/components/mileage-form";
@@ -81,8 +82,17 @@ export default async function GaragePage({ searchParams }: { searchParams: Promi
               <img src={`/api/files/${active.photoFileId}`} alt={`תמונה של ${name}`} className="absolute inset-0 size-full object-cover" />
             ) : (
               <div className="w-full px-4 py-6">
-                <VehicleSvg view="side" shape={viewer.shape} overlays={{ installed: new Set(viewer.installed.map((u) => u.overlay!).filter(Boolean)), planned: new Set() }} title={`איור כללי של ${name}`} className="w-full" />
-                <p className="text-center text-[11px] text-sand-400 -mt-2">איור כללי — לא תמונה של הרכב</p>
+                {viewer.photoSet ? (
+                  <>
+                    <VehiclePhoto set={viewer.photoSet} alt={`איור להמחשה של ${name}`} className="w-full h-auto" priority />
+                    <p className="text-center text-[11px] text-sand-400 mt-1">איור להמחשה — לא תמונה של הרכב</p>
+                  </>
+                ) : (
+                  <>
+                    <VehicleSvg view="side" shape={viewer.shape} overlays={{ installed: new Set(viewer.installed.map((u) => u.overlay!).filter(Boolean)), planned: new Set() }} title={`איור כללי של ${name}`} className="w-full" />
+                    <p className="text-center text-[11px] text-sand-400 -mt-2">איור כללי — לא תמונה של הרכב</p>
+                  </>
+                )}
               </div>
             )}
             <Link href={`/garage/${active.id}/edit#photo`} className="absolute bottom-3 end-3 inline-flex items-center gap-1.5 rounded-full bg-white/90 text-charcoal-900 text-xs font-medium px-3 min-h-9">
