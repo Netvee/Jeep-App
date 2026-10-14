@@ -23,6 +23,7 @@ const DEFENDER = "/vehicles/land-rover-defender-l663";
 const DEFENDER_CLASSIC = "/vehicles/land-rover-defender-classic";
 const G_CLASS = "/vehicles/mercedes-g-w463";
 const TRITON = "/vehicles/mitsubishi-triton-6";
+const L200 = "/vehicles/mitsubishi-l200-5";
 
 /** Later zones sit on top of earlier ones, so small parts come after the large areas around them. */
 export const PHOTO_SETS: Record<string, PhotoSet> = {
@@ -979,6 +980,100 @@ export const PHOTO_SETS: Record<string, PhotoSet> = {
       },
     },
   },
+  "mitsubishi-l200-5": {
+    key: "mitsubishi-l200-5",
+    label: "מיצובישי L200 דור 5",
+    note: "איור להמחשה של L200 דור 5 (KL) קבינה כפולה (חזית ואחור במבט אלכסוני) — לא תמונה של הרכב שלכם ולא של גרסה מסוימת.",
+    views: {
+      side: {
+        src: `${L200}/side.webp`,
+        w: 810,
+        h: 333,
+        zones: [
+          ["roof_rack", 0.37, 0, 0.69, 0.09],
+          ["rear_storage", 0.7, 0.19, 0.94, 0.4],
+          ["engine", 0.02, 0.22, 0.3, 0.4],
+          ["lighting", 0.01, 0.4, 0.08, 0.49],
+          ["lighting", 0.94, 0.31, 0.99, 0.5],
+          ["front_bumper", 0, 0.49, 0.08, 0.7],
+          ["tyres", 0.08, 0.57, 0.25, 1],
+          ["tyres", 0.68, 0.57, 0.85, 1],
+          ["front_suspension", 0.08, 0.48, 0.25, 0.58],
+          ["rear_suspension", 0.68, 0.48, 0.85, 0.58],
+          ["brakes", 0.14, 0.72, 0.19, 0.87],
+          ["brakes", 0.74, 0.72, 0.79, 0.87],
+          ["rock_sliders", 0.28, 0.72, 0.65, 0.8],
+          ["recovery_points", 0.95, 0.58, 1, 0.7],
+        ],
+      },
+      front: {
+        // three-quarter front view
+        src: `${L200}/front.webp`,
+        w: 794,
+        h: 487,
+        zones: [
+          ["roof_rack", 0.35, 0, 0.81, 0.12],
+          ["rear_storage", 0.78, 0.08, 1, 0.41],
+          ["engine", 0.05, 0.29, 0.53, 0.47],
+          ["front_bumper", 0, 0.62, 0.39, 0.85],
+          ["skid_plates", 0.04, 0.76, 0.29, 0.84],
+          ["cooling", 0.06, 0.48, 0.26, 0.62],
+          ["cooling", 0.05, 0.63, 0.24, 0.75],
+          ["lighting", 0.02, 0.46, 0.07, 0.57],
+          ["lighting", 0.25, 0.52, 0.4, 0.62],
+          ["lighting", 0.24, 0.7, 0.3, 0.78],
+          ["tyres", 0.35, 0.65, 0.52, 1],
+          ["tyres", 0.77, 0.42, 0.92, 0.73],
+          ["tyres", 0.03, 0.84, 0.16, 0.9],
+          ["front_suspension", 0.38, 0.57, 0.52, 0.66],
+          ["brakes", 0.43, 0.77, 0.49, 0.88],
+          ["rock_sliders", 0.54, 0.62, 0.77, 0.78],
+        ],
+      },
+      rear: {
+        // three-quarter rear view
+        src: `${L200}/rear.webp`,
+        w: 678,
+        h: 441,
+        zones: [
+          ["roof_rack", 0.27, 0, 0.69, 0.12],
+          ["rear_storage", 0.43, 0.23, 0.96, 0.66],
+          ["lighting", 0.53, 0.48, 0.62, 0.66],
+          ["lighting", 0.96, 0.39, 1, 0.55],
+          ["recovery_points", 0.56, 0.68, 1, 0.82],
+          ["tyres", 0, 0.34, 0.15, 0.68],
+          ["tyres", 0.34, 0.61, 0.52, 1],
+          ["tyres", 0.71, 0.82, 0.89, 0.9],
+          ["rear_suspension", 0.35, 0.54, 0.52, 0.62],
+          ["rock_sliders", 0.12, 0.52, 0.34, 0.73],
+          ["brakes", 0.37, 0.71, 0.43, 0.84],
+        ],
+      },
+      under: {
+        // seen from below, front of the vehicle on the left like the side view
+        src: `${L200}/under.webp`,
+        w: 664,
+        h: 346,
+        zones: [
+          ["tyres", 0.06, 0, 0.28, 0.17],
+          ["tyres", 0.06, 0.83, 0.28, 1],
+          ["tyres", 0.69, 0, 0.91, 0.17],
+          ["tyres", 0.69, 0.83, 0.91, 1],
+          ["front_bumper", 0, 0.15, 0.05, 0.85],
+          ["front_suspension", 0.08, 0.2, 0.3, 0.35],
+          ["front_suspension", 0.08, 0.65, 0.3, 0.8],
+          ["front_axle", 0.13, 0.4, 0.22, 0.6],
+          ["transmission", 0.22, 0.38, 0.34, 0.6],
+          ["transfer_case", 0.34, 0.4, 0.4, 0.58],
+          ["driveshafts", 0.4, 0.45, 0.76, 0.53],
+          ["rear_suspension", 0.68, 0.2, 0.98, 0.3],
+          ["rear_suspension", 0.68, 0.7, 0.98, 0.8],
+          ["rear_axle", 0.77, 0.3, 0.83, 0.7],
+          ["spare", 0.87, 0.27, 0.97, 0.73],
+        ],
+      },
+    },
+  },
 };
 
 /** Where the image sits in the W×H stage: as large as fits, wheels on the ground line. */
@@ -1011,6 +1106,7 @@ export function photoSetFor(input: { generationSlug?: string | null; make?: stri
   // the illustration shows the pre-2018 W463 body
   if (/g.?class|g.?wag|גי.?קלאס|וואגן|w463/i.test(text) && input.year && input.year <= 2018) return "mercedes-g-w463";
   if (/triton|טרייטון|טריטון|l200|אל 200/i.test(text) && (input.year ?? 0) >= 2024) return "mitsubishi-triton-6";
+  if (/triton|טרייטון|טריטון|l200|אל 200/i.test(text) && (input.year ?? 0) >= 2015) return "mitsubishi-l200-5";
   // WL replaced the WK2 for model year 2022
   if (/grand.?cherokee|גרנד/i.test(text) && (input.year ?? 0) >= 2022) return "jeep-grand-cherokee-wl";
   if (/gladiator|גלדיאטור/i.test(text) && (input.year ?? 0) >= 2020) return "jeep-gladiator-jt";
