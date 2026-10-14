@@ -1,0 +1,19 @@
+{
+  "name": "Shetach (שטח) — 4x4 garage",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "postCreateCommand": "npm ci",
+  "postAttachCommand": {
+    "app": "npm run dev"
+  },
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": { "label": "Shetach app", "onAutoForward": "openBrowser" }
+  },
+  "containerEnv": {
+    "SEED_DEMO_DATA": "true",
+    "NEXT_TELEMETRY_DISABLED": "1"
+  },
+  "customizations": {
+    "codespaces": { "openFiles": ["README.md"] }
+  }
+}

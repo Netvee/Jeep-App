@@ -6,6 +6,12 @@ A Hebrew-first (RTL) progressive web app: manage your vehicles, see installed an
 
 ---
 
+## Try it in the browser (GitHub Codespaces)
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Netvee/Jeep-App?ref=claude/shetach-4x4-garage)
+
+Click the button → **Create codespace**. GitHub installs dependencies and starts the app (≈2–3 minutes the first time); a browser tab opens on the forwarded port. If it doesn't, open the **Ports** tab and click the globe icon next to port 3000. Then press **כניסה לחשבון הדגמה** for the demo account. The codespace link is private to your GitHub account unless you change the port visibility to Public. Data lives in the codespace's embedded database.
+
 ## Quick start
 
 ```bash

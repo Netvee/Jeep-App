@@ -18,8 +18,10 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  // GitHub Codespaces serves the app through *.app.github.dev port-forwarding
+  allowedDevOrigins: ["*.app.github.dev"],
   experimental: {
-    serverActions: { bodySizeLimit: "12mb" },
+    serverActions: { bodySizeLimit: "12mb", allowedOrigins: ["*.app.github.dev"] },
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
