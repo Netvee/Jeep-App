@@ -15,6 +15,7 @@ export type PhotoSet = { key: string; label: string; note: string; views: Record
 
 const JL = "/vehicles/jeep-wrangler-jl";
 const RANGER = "/vehicles/ford-ranger-p703";
+const BRONCO = "/vehicles/ford-bronco-u725";
 
 /** Later zones sit on top of earlier ones, so small parts come after the large areas around them. */
 export const PHOTO_SETS: Record<string, PhotoSet> = {
@@ -211,6 +212,106 @@ export const PHOTO_SETS: Record<string, PhotoSet> = {
       },
     },
   },
+  "ford-bronco-u725": {
+    key: "ford-bronco-u725",
+    label: "פורד ברונקו U725",
+    note: "איור להמחשה של ברונקו U725 ארבע דלתות (חזית ואחור במבט אלכסוני) — לא תמונה של הרכב שלכם ולא של גרסה מסוימת.",
+    views: {
+      side: {
+        src: `${BRONCO}/side.webp`,
+        w: 750,
+        h: 317,
+        zones: [
+          ["roof_rack", 0.38, 0, 0.92, 0.09],
+          ["rear_storage", 0.71, 0.08, 0.92, 0.32],
+          ["engine", 0.03, 0.27, 0.3, 0.42],
+          ["lighting", 0, 0.38, 0.05, 0.55],
+          ["lighting", 0.91, 0.35, 0.95, 0.53],
+          ["front_bumper", 0, 0.55, 0.07, 0.73],
+          ["tyres", 0.06, 0.54, 0.27, 1],
+          ["tyres", 0.66, 0.54, 0.87, 1],
+          ["spare", 0.92, 0.2, 1, 0.65],
+          ["front_suspension", 0.07, 0.46, 0.27, 0.56],
+          ["rear_suspension", 0.66, 0.46, 0.87, 0.56],
+          ["brakes", 0.14, 0.71, 0.19, 0.85],
+          ["brakes", 0.75, 0.71, 0.79, 0.85],
+          ["rock_sliders", 0.29, 0.71, 0.65, 0.78],
+          ["recovery_points", 0.87, 0.6, 0.97, 0.71],
+        ],
+      },
+      front: {
+        // three-quarter front view
+        src: `${BRONCO}/front.webp`,
+        w: 746,
+        h: 415,
+        zones: [
+          ["roof_rack", 0.36, 0, 0.95, 0.1],
+          ["spare", 0.95, 0.25, 1, 0.55],
+          ["engine", 0.05, 0.27, 0.55, 0.41],
+          ["cooling", 0.04, 0.42, 0.38, 0.57],
+          ["lighting", 0.01, 0.4, 0.06, 0.56],
+          ["lighting", 0.31, 0.42, 0.38, 0.56],
+          ["front_bumper", 0, 0.57, 0.43, 0.73],
+          ["recovery_points", 0.06, 0.61, 0.1, 0.7],
+          ["recovery_points", 0.23, 0.63, 0.27, 0.71],
+          ["skid_plates", 0.08, 0.73, 0.38, 0.8],
+          ["tyres", 0.37, 0.56, 0.58, 1],
+          ["tyres", 0.82, 0.49, 0.97, 0.87],
+          ["tyres", 0.01, 0.8, 0.2, 0.93],
+          ["front_suspension", 0.42, 0.47, 0.58, 0.57],
+          ["brakes", 0.47, 0.72, 0.53, 0.84],
+          ["rock_sliders", 0.58, 0.66, 0.82, 0.75],
+        ],
+      },
+      rear: {
+        // three-quarter rear view
+        src: `${BRONCO}/rear.webp`,
+        w: 708,
+        h: 422,
+        zones: [
+          ["roof_rack", 0.24, 0, 0.92, 0.1],
+          ["rear_storage", 0.59, 0.06, 0.93, 0.2],
+          ["spare", 0.66, 0.2, 0.92, 0.66],
+          ["lighting", 0.53, 0.34, 0.59, 0.52],
+          ["lighting", 0.94, 0.34, 0.99, 0.52],
+          ["recovery_points", 0.47, 0.6, 0.99, 0.74],
+          ["tyres", 0, 0.54, 0.16, 0.93],
+          ["tyres", 0.34, 0.54, 0.55, 1],
+          ["tyres", 0.79, 0.74, 0.97, 0.96],
+          ["rear_axle", 0.55, 0.74, 0.79, 0.84],
+          ["rear_suspension", 0.35, 0.46, 0.53, 0.55],
+          ["rock_sliders", 0.13, 0.69, 0.34, 0.77],
+          ["brakes", 0.4, 0.72, 0.46, 0.86],
+        ],
+      },
+      under: {
+        // seen from below, front of the vehicle on the left like the side view
+        src: `${BRONCO}/under.webp`,
+        w: 722,
+        h: 337,
+        zones: [
+          ["tyres", 0.07, 0, 0.25, 0.15],
+          ["tyres", 0.07, 0.85, 0.25, 1],
+          ["tyres", 0.68, 0, 0.86, 0.15],
+          ["tyres", 0.68, 0.85, 0.86, 1],
+          ["front_bumper", 0, 0.12, 0.06, 0.88],
+          ["spare", 0.95, 0.25, 1, 0.75],
+          ["steering", 0.06, 0.3, 0.11, 0.7],
+          ["front_suspension", 0.1, 0.15, 0.3, 0.3],
+          ["front_suspension", 0.1, 0.7, 0.3, 0.85],
+          ["front_axle", 0.11, 0.3, 0.21, 0.65],
+          ["skid_plates", 0.33, 0.1, 0.6, 0.33],
+          ["skid_plates", 0.33, 0.7, 0.6, 0.9],
+          ["transmission", 0.23, 0.38, 0.34, 0.6],
+          ["transfer_case", 0.34, 0.4, 0.39, 0.58],
+          ["driveshafts", 0.39, 0.44, 0.72, 0.54],
+          ["rear_axle", 0.72, 0.3, 0.78, 0.7],
+          ["rear_suspension", 0.68, 0.15, 0.78, 0.3],
+          ["rear_suspension", 0.68, 0.7, 0.78, 0.85],
+        ],
+      },
+    },
+  },
 };
 
 /** Where the image sits in the W×H stage: as large as fits, wheels on the ground line. */
@@ -237,5 +338,6 @@ export function photoSetFor(input: { generationSlug?: string | null; make?: stri
   if (/wrangler|רנגלר|ראנגלר/i.test(text) && (input.year ?? 0) >= 2019) return "jeep-wrangler-jl";
   // the P703 Ranger arrived in Israel as a 2023 model; earlier years are the T6/PX
   if (/ranger|ריינג/i.test(text) && (input.year ?? 0) >= 2023) return "ford-ranger-p703";
+  if (/bronco|ברונקו/i.test(text) && !/sport|ספורט/i.test(text) && (input.year ?? 0) >= 2021) return "ford-bronco-u725";
   return null;
 }
