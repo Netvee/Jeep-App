@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="fixture" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata><name>Fixture (synthetic test data)</name></metadata>
+  <trk><name>fixture</name><trkseg>
+    <trkpt lat="31.7000" lon="35.0000"><ele>300</ele></trkpt>
+    <trkpt lat="31.7050" lon="35.0060"><ele>310</ele></trkpt>
+    <trkpt lat="31.7100" lon="35.0120"><ele>330</ele></trkpt>
+  </trkseg></trk>
+</gpx>
