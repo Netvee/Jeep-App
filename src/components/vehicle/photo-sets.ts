@@ -21,6 +21,7 @@ const JT = "/vehicles/jeep-gladiator-jt";
 const WL = "/vehicles/jeep-grand-cherokee-wl";
 const DEFENDER = "/vehicles/land-rover-defender-l663";
 const DEFENDER_CLASSIC = "/vehicles/land-rover-defender-classic";
+const G_CLASS = "/vehicles/mercedes-g-w463";
 
 /** Later zones sit on top of earlier ones, so small parts come after the large areas around them. */
 export const PHOTO_SETS: Record<string, PhotoSet> = {
@@ -792,6 +793,99 @@ export const PHOTO_SETS: Record<string, PhotoSet> = {
       },
     },
   },
+  "mercedes-g-w463": {
+    key: "mercedes-g-w463",
+    label: "מרצדס G-Class W463",
+    note: "איור להמחשה של G-Class W463 במראה שלפני 2018 (חזית ואחור במבט אלכסוני) — לא תמונה של הרכב שלכם ולא של גרסה מסוימת.",
+    views: {
+      side: {
+        src: `${G_CLASS}/side.webp`,
+        w: 770,
+        h: 370,
+        zones: [
+          ["roof_rack", 0.37, 0, 0.91, 0.08],
+          ["rear_storage", 0.71, 0.11, 0.9, 0.33],
+          ["engine", 0.02, 0.36, 0.31, 0.45],
+          ["lighting", 0.01, 0.42, 0.05, 0.56],
+          ["spare", 0.93, 0.27, 1, 0.62],
+          ["lighting", 0.93, 0.56, 0.96, 0.64],
+          ["front_bumper", 0, 0.57, 0.07, 0.73],
+          ["tyres", 0.07, 0.59, 0.27, 1],
+          ["tyres", 0.68, 0.59, 0.88, 1],
+          ["front_suspension", 0.07, 0.5, 0.27, 0.6],
+          ["rear_suspension", 0.68, 0.5, 0.88, 0.6],
+          ["brakes", 0.14, 0.73, 0.2, 0.88],
+          ["brakes", 0.75, 0.73, 0.81, 0.88],
+          ["rock_sliders", 0.3, 0.71, 0.68, 0.79],
+          ["recovery_points", 0.88, 0.67, 0.96, 0.81],
+        ],
+      },
+      front: {
+        // three-quarter front view
+        src: `${G_CLASS}/front.webp`,
+        w: 737,
+        h: 506,
+        zones: [
+          ["roof_rack", 0.32, 0, 0.95, 0.14],
+          ["engine", 0.05, 0.35, 0.6, 0.49],
+          ["air_intake", 0.52, 0.47, 0.57, 0.54],
+          ["front_bumper", 0, 0.64, 0.37, 0.81],
+          ["cooling", 0.08, 0.48, 0.27, 0.65],
+          ["lighting", 0.03, 0.49, 0.08, 0.59],
+          ["lighting", 0.28, 0.55, 0.35, 0.67],
+          ["tyres", 0.37, 0.65, 0.56, 1],
+          ["tyres", 0.8, 0.49, 0.95, 0.78],
+          ["tyres", 0.03, 0.81, 0.19, 0.89],
+          ["front_suspension", 0.38, 0.58, 0.56, 0.66],
+          ["brakes", 0.43, 0.78, 0.5, 0.9],
+          ["rock_sliders", 0.57, 0.65, 0.8, 0.76],
+        ],
+      },
+      rear: {
+        // three-quarter rear view
+        src: `${G_CLASS}/rear.webp`,
+        w: 692,
+        h: 491,
+        zones: [
+          ["roof_rack", 0.22, 0, 0.92, 0.19],
+          ["rear_storage", 0.66, 0.19, 0.88, 0.33],
+          ["spare", 0.66, 0.33, 0.9, 0.69],
+          ["recovery_points", 0.53, 0.69, 1, 0.84],
+          ["lighting", 0.59, 0.67, 0.67, 0.74],
+          ["lighting", 0.91, 0.6, 0.98, 0.66],
+          ["tyres", 0.02, 0.44, 0.19, 0.76],
+          ["tyres", 0.39, 0.64, 0.58, 1],
+          ["tyres", 0.77, 0.84, 0.92, 0.92],
+          ["rear_suspension", 0.39, 0.56, 0.55, 0.65],
+          ["rock_sliders", 0.15, 0.61, 0.38, 0.73],
+          ["brakes", 0.43, 0.76, 0.49, 0.9],
+        ],
+      },
+      under: {
+        // seen from below, front of the vehicle on the left like the side view
+        src: `${G_CLASS}/under.webp`,
+        w: 693,
+        h: 350,
+        zones: [
+          ["tyres", 0.04, 0, 0.25, 0.15],
+          ["tyres", 0.04, 0.85, 0.25, 1],
+          ["tyres", 0.69, 0, 0.9, 0.15],
+          ["tyres", 0.69, 0.85, 0.9, 1],
+          ["front_bumper", 0, 0.15, 0.04, 0.85],
+          ["front_axle", 0.11, 0.15, 0.18, 0.85],
+          ["front_suspension", 0.11, 0.18, 0.2, 0.32],
+          ["front_suspension", 0.11, 0.68, 0.2, 0.82],
+          ["transmission", 0.2, 0.4, 0.3, 0.6],
+          ["transfer_case", 0.3, 0.4, 0.42, 0.6],
+          ["driveshafts", 0.42, 0.44, 0.76, 0.53],
+          ["rear_axle", 0.76, 0.15, 0.83, 0.85],
+          ["rear_suspension", 0.76, 0.18, 0.85, 0.32],
+          ["rear_suspension", 0.76, 0.68, 0.85, 0.82],
+          ["spare", 0.9, 0.25, 1, 0.8],
+        ],
+      },
+    },
+  },
 };
 
 /** Where the image sits in the W×H stage: as large as fits, wheels on the ground line. */
@@ -821,6 +915,8 @@ export function photoSetFor(input: { generationSlug?: string | null; make?: stri
   if (/defender|דיפנדר|דפנדר/i.test(text) && (input.year ?? 0) >= 2020) return "land-rover-defender-l663";
   // the classic Defender ended production in 2016
   if (/defender|דיפנדר|דפנדר/i.test(text) && input.year && input.year <= 2016) return "land-rover-defender-classic";
+  // the illustration shows the pre-2018 W463 body
+  if (/g.?class|g.?wag|גי.?קלאס|וואגן|w463/i.test(text) && input.year && input.year <= 2018) return "mercedes-g-w463";
   // WL replaced the WK2 for model year 2022
   if (/grand.?cherokee|גרנד/i.test(text) && (input.year ?? 0) >= 2022) return "jeep-grand-cherokee-wl";
   if (/gladiator|גלדיאטור/i.test(text) && (input.year ?? 0) >= 2020) return "jeep-gladiator-jt";
