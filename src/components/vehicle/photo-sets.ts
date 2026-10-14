@@ -16,6 +16,7 @@ export type PhotoSet = { key: string; label: string; note: string; views: Record
 const JL = "/vehicles/jeep-wrangler-jl";
 const RANGER = "/vehicles/ford-ranger-p703";
 const BRONCO = "/vehicles/ford-bronco-u725";
+const DMAX = "/vehicles/isuzu-d-max-3";
 
 /** Later zones sit on top of earlier ones, so small parts come after the large areas around them. */
 export const PHOTO_SETS: Record<string, PhotoSet> = {
@@ -312,6 +313,100 @@ export const PHOTO_SETS: Record<string, PhotoSet> = {
       },
     },
   },
+  "isuzu-d-max-3": {
+    key: "isuzu-d-max-3",
+    label: "איסוזו די-מקס RG",
+    note: "איור להמחשה של די-מקס RG קבינה כפולה (חזית ואחור במבט אלכסוני) — לא תמונה של הרכב שלכם ולא של גרסה מסוימת.",
+    views: {
+      side: {
+        src: `${DMAX}/side.webp`,
+        w: 788,
+        h: 298,
+        zones: [
+          ["roof_rack", 0.28, 0.02, 0.67, 0.09],
+          ["rear_storage", 0.68, 0.25, 0.94, 0.55],
+          ["engine", 0.02, 0.27, 0.27, 0.42],
+          ["lighting", 0, 0.38, 0.08, 0.48],
+          ["lighting", 0.94, 0.28, 0.99, 0.55],
+          ["front_bumper", 0, 0.48, 0.07, 0.72],
+          ["tyres", 0.07, 0.55, 0.25, 1],
+          ["tyres", 0.68, 0.55, 0.86, 1],
+          ["front_suspension", 0.07, 0.47, 0.25, 0.56],
+          ["rear_suspension", 0.68, 0.47, 0.86, 0.56],
+          ["brakes", 0.14, 0.71, 0.18, 0.87],
+          ["brakes", 0.75, 0.71, 0.79, 0.87],
+          ["rock_sliders", 0.26, 0.73, 0.67, 0.81],
+          ["recovery_points", 0.94, 0.58, 1, 0.72],
+        ],
+      },
+      front: {
+        // three-quarter front view
+        src: `${DMAX}/front.webp`,
+        w: 781,
+        h: 416,
+        zones: [
+          ["roof_rack", 0.3, 0, 0.8, 0.1],
+          ["rear_storage", 0.82, 0.18, 1, 0.47],
+          ["engine", 0.04, 0.27, 0.5, 0.44],
+          ["cooling", 0.04, 0.47, 0.23, 0.68],
+          ["lighting", 0.23, 0.44, 0.37, 0.56],
+          ["lighting", 0.27, 0.6, 0.33, 0.72],
+          ["front_bumper", 0, 0.68, 0.38, 0.82],
+          ["skid_plates", 0.18, 0.82, 0.35, 0.88],
+          ["tyres", 0.35, 0.58, 0.53, 1],
+          ["tyres", 0.8, 0.47, 0.94, 0.8],
+          ["tyres", 0.03, 0.8, 0.18, 0.88],
+          ["front_suspension", 0.38, 0.5, 0.53, 0.59],
+          ["brakes", 0.43, 0.73, 0.49, 0.86],
+          ["rock_sliders", 0.54, 0.64, 0.8, 0.79],
+        ],
+      },
+      rear: {
+        // three-quarter rear view
+        src: `${DMAX}/rear.webp`,
+        w: 701,
+        h: 396,
+        zones: [
+          ["roof_rack", 0.16, 0, 0.67, 0.08],
+          ["rear_storage", 0.36, 0.27, 0.96, 0.63],
+          ["lighting", 0.55, 0.39, 0.63, 0.63],
+          ["lighting", 0.96, 0.33, 1, 0.56],
+          ["recovery_points", 0.58, 0.63, 0.98, 0.79],
+          ["tyres", 0, 0.42, 0.13, 0.73],
+          ["tyres", 0.35, 0.58, 0.51, 1],
+          ["tyres", 0.73, 0.79, 0.88, 0.92],
+          ["rear_axle", 0.6, 0.79, 0.73, 0.86],
+          ["rear_suspension", 0.35, 0.5, 0.5, 0.58],
+          ["rock_sliders", 0.11, 0.62, 0.35, 0.73],
+          ["brakes", 0.38, 0.73, 0.44, 0.86],
+        ],
+      },
+      under: {
+        // seen from below, front of the vehicle on the left like the side view
+        src: `${DMAX}/under.webp`,
+        w: 712,
+        h: 307,
+        zones: [
+          ["tyres", 0.08, 0, 0.27, 0.14],
+          ["tyres", 0.08, 0.86, 0.27, 1],
+          ["tyres", 0.68, 0, 0.87, 0.14],
+          ["tyres", 0.68, 0.86, 0.87, 1],
+          ["front_bumper", 0, 0.1, 0.06, 0.9],
+          ["steering", 0.06, 0.3, 0.11, 0.7],
+          ["front_suspension", 0.1, 0.14, 0.3, 0.3],
+          ["front_suspension", 0.1, 0.7, 0.3, 0.86],
+          ["engine", 0.12, 0.33, 0.2, 0.68],
+          ["transmission", 0.2, 0.35, 0.34, 0.66],
+          ["transfer_case", 0.34, 0.4, 0.4, 0.6],
+          ["driveshafts", 0.4, 0.45, 0.72, 0.55],
+          ["rear_suspension", 0.66, 0.17, 0.95, 0.28],
+          ["rear_suspension", 0.66, 0.72, 0.95, 0.83],
+          ["rear_axle", 0.73, 0.28, 0.78, 0.72],
+          ["spare", 0.8, 0.3, 0.95, 0.7],
+        ],
+      },
+    },
+  },
 };
 
 /** Where the image sits in the W×H stage: as large as fits, wheels on the ground line. */
@@ -338,6 +433,7 @@ export function photoSetFor(input: { generationSlug?: string | null; make?: stri
   if (/wrangler|רנגלר|ראנגלר/i.test(text) && (input.year ?? 0) >= 2019) return "jeep-wrangler-jl";
   // the P703 Ranger arrived in Israel as a 2023 model; earlier years are the T6/PX
   if (/ranger|ריינג/i.test(text) && (input.year ?? 0) >= 2023) return "ford-ranger-p703";
+  if (/d-?max|די.?מקס|דימקס/i.test(text) && (input.year ?? 0) >= 2021) return "isuzu-d-max-3";
   if (/bronco|ברונקו/i.test(text) && !/sport|ספורט/i.test(text) && (input.year ?? 0) >= 2021) return "ford-bronco-u725";
   return null;
 }
