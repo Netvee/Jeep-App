@@ -19,6 +19,7 @@ const BRONCO = "/vehicles/ford-bronco-u725";
 const DMAX = "/vehicles/isuzu-d-max-3";
 const JT = "/vehicles/jeep-gladiator-jt";
 const WL = "/vehicles/jeep-grand-cherokee-wl";
+const DEFENDER = "/vehicles/land-rover-defender-l663";
 
 /** Later zones sit on top of earlier ones, so small parts come after the large areas around them. */
 export const PHOTO_SETS: Record<string, PhotoSet> = {
@@ -598,6 +599,103 @@ export const PHOTO_SETS: Record<string, PhotoSet> = {
       },
     },
   },
+  "land-rover-defender-l663": {
+    key: "land-rover-defender-l663",
+    label: "לנד רובר דיפנדר L663",
+    note: "איור להמחשה של דיפנדר L663 בגרסת 110 (חזית ואחור במבט אלכסוני) — לא תמונה של הרכב שלכם ולא של גרסה מסוימת.",
+    views: {
+      side: {
+        src: `${DEFENDER}/side.webp`,
+        w: 777,
+        h: 357,
+        zones: [
+          ["roof_rack", 0.37, 0, 0.93, 0.1],
+          ["rear_storage", 0.75, 0.1, 0.92, 0.33],
+          ["engine", 0.02, 0.28, 0.26, 0.4],
+          ["air_intake", 0.26, 0.38, 0.3, 0.57],
+          ["lighting", 0.01, 0.4, 0.07, 0.52],
+          ["lighting", 0.92, 0.33, 0.95, 0.56],
+          ["spare", 0.94, 0.2, 1, 0.6],
+          ["front_bumper", 0, 0.53, 0.07, 0.73],
+          ["tyres", 0.06, 0.56, 0.25, 1],
+          ["tyres", 0.68, 0.56, 0.87, 1],
+          ["front_suspension", 0.06, 0.48, 0.25, 0.57],
+          ["rear_suspension", 0.68, 0.48, 0.87, 0.57],
+          ["brakes", 0.13, 0.71, 0.18, 0.86],
+          ["brakes", 0.75, 0.71, 0.79, 0.86],
+          ["rock_sliders", 0.26, 0.68, 0.68, 0.77],
+          ["recovery_points", 0.89, 0.6, 0.96, 0.74],
+        ],
+      },
+      front: {
+        // three-quarter front view
+        src: `${DEFENDER}/front.webp`,
+        w: 755,
+        h: 496,
+        zones: [
+          ["roof_rack", 0.33, 0, 0.97, 0.18],
+          ["engine", 0.05, 0.34, 0.53, 0.49],
+          ["air_intake", 0.53, 0.47, 0.57, 0.61],
+          ["front_bumper", 0, 0.6, 0.36, 0.82],
+          ["cooling", 0.06, 0.5, 0.25, 0.61],
+          ["cooling", 0.07, 0.63, 0.24, 0.73],
+          ["skid_plates", 0.07, 0.75, 0.22, 0.81],
+          ["lighting", 0.02, 0.46, 0.08, 0.57],
+          ["lighting", 0.25, 0.54, 0.35, 0.64],
+          ["tyres", 0.33, 0.64, 0.53, 1],
+          ["tyres", 0.79, 0.49, 0.97, 0.83],
+          ["tyres", 0.02, 0.8, 0.15, 0.88],
+          ["front_suspension", 0.36, 0.58, 0.53, 0.66],
+          ["brakes", 0.42, 0.76, 0.49, 0.9],
+          ["rock_sliders", 0.53, 0.64, 0.79, 0.75],
+        ],
+      },
+      rear: {
+        // three-quarter rear view
+        src: `${DEFENDER}/rear.webp`,
+        w: 701,
+        h: 494,
+        zones: [
+          ["roof_rack", 0.24, 0, 0.88, 0.18],
+          ["rear_storage", 0.67, 0.18, 0.93, 0.33],
+          ["spare", 0.7, 0.33, 0.94, 0.7],
+          ["lighting", 0.6, 0.42, 0.65, 0.65],
+          ["lighting", 0.94, 0.4, 0.99, 0.59],
+          ["recovery_points", 0.57, 0.7, 1, 0.85],
+          ["tyres", 0, 0.38, 0.13, 0.69],
+          ["tyres", 0.34, 0.61, 0.54, 1],
+          ["tyres", 0.86, 0.72, 0.99, 0.86],
+          ["rear_suspension", 0.35, 0.53, 0.5, 0.62],
+          ["rock_sliders", 0.13, 0.53, 0.35, 0.65],
+          ["brakes", 0.39, 0.75, 0.45, 0.88],
+        ],
+      },
+      under: {
+        // seen from below, front of the vehicle on the left like the side view
+        src: `${DEFENDER}/under.webp`,
+        w: 695,
+        h: 345,
+        zones: [
+          ["tyres", 0.07, 0, 0.26, 0.17],
+          ["tyres", 0.07, 0.83, 0.26, 1],
+          ["tyres", 0.71, 0, 0.9, 0.17],
+          ["tyres", 0.71, 0.83, 0.9, 1],
+          ["front_bumper", 0, 0.2, 0.06, 0.8],
+          ["skid_plates", 0.08, 0.3, 0.25, 0.7],
+          ["skid_plates", 0.3, 0.06, 0.65, 0.28],
+          ["skid_plates", 0.3, 0.72, 0.65, 0.94],
+          ["front_suspension", 0.12, 0.15, 0.3, 0.3],
+          ["front_suspension", 0.12, 0.7, 0.3, 0.85],
+          ["transmission", 0.3, 0.33, 0.5, 0.55],
+          ["transfer_case", 0.5, 0.34, 0.6, 0.5],
+          ["rear_suspension", 0.65, 0.15, 0.83, 0.3],
+          ["rear_suspension", 0.65, 0.7, 0.83, 0.85],
+          ["rear_axle", 0.78, 0.3, 0.83, 0.7],
+          ["spare", 0.94, 0.25, 1, 0.75],
+        ],
+      },
+    },
+  },
 };
 
 /** Where the image sits in the W×H stage: as large as fits, wheels on the ground line. */
@@ -624,6 +722,7 @@ export function photoSetFor(input: { generationSlug?: string | null; make?: stri
   if (/wrangler|רנגלר|ראנגלר/i.test(text) && (input.year ?? 0) >= 2019) return "jeep-wrangler-jl";
   // the P703 Ranger arrived in Israel as a 2023 model; earlier years are the T6/PX
   if (/ranger|ריינג/i.test(text) && (input.year ?? 0) >= 2023) return "ford-ranger-p703";
+  if (/defender|דיפנדר|דפנדר/i.test(text) && (input.year ?? 0) >= 2020) return "land-rover-defender-l663";
   // WL replaced the WK2 for model year 2022
   if (/grand.?cherokee|גרנד/i.test(text) && (input.year ?? 0) >= 2022) return "jeep-grand-cherokee-wl";
   if (/gladiator|גלדיאטור/i.test(text) && (input.year ?? 0) >= 2020) return "jeep-gladiator-jt";
