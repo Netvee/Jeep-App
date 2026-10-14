@@ -1,10 +1,11 @@
 {
   "name": "Shetach (שטח) — 4x4 garage",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
-  "postCreateCommand": "npm ci",
-  "postAttachCommand": {
-    "app": "npm run dev"
-  },
+  // install + production build once, when the codespace is created
+  "postCreateCommand": "npm ci && npm run build",
+  // start the app in the background every time the codespace starts —
+  // it does not depend on an editor being attached (works from the GitHub mobile app too)
+  "postStartCommand": "bash .devcontainer/start.sh",
   "forwardPorts": [3000],
   "portsAttributes": {
     "3000": { "label": "Shetach app", "onAutoForward": "openBrowser" }
@@ -12,8 +13,5 @@
   "containerEnv": {
     "SEED_DEMO_DATA": "true",
     "NEXT_TELEMETRY_DISABLED": "1"
-  },
-  "customizations": {
-    "codespaces": { "openFiles": ["README.md"] }
   }
 }
