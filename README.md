@@ -6,6 +6,12 @@ A Hebrew-first (RTL) progressive web app: manage your vehicles, see installed an
 
 ---
 
+## Get a public web address (Render, one click)
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Netvee/Jeep-App)
+
+Sign in to Render with GitHub → **Apply**. Render creates the web service and a Postgres database from `render.yaml`, builds the app (≈5–10 minutes) and gives you an `https://shetach-….onrender.com` address that works on any phone, tablet or computer. Free-tier notes: the service sleeps after ~15 minutes idle (the next visit takes ~1 minute to wake up), and Render's free Postgres has a limited lifetime — upgrade the database plan to keep data long-term.
+
 ## Try it in the browser (GitHub Codespaces)
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Netvee/Jeep-App?ref=claude/shetach-4x4-garage)

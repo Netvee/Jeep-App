@@ -1,0 +1,24 @@
+# One-click hosting on Render (https://render.com): a Node web service + a Postgres database.
+# "New → Blueprint" (or the Deploy button in README) reads this file.
+services:
+  - type: web
+    name: shetach
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /register
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: shetach-db
+          property: connectionString
+      - key: SEED_DEMO_DATA
+        value: "true"
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+databases:
+  - name: shetach-db
+    plan: free
