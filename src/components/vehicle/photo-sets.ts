@@ -14,6 +14,7 @@ type PhotoView = { src: string; w: number; h: number; zones: Zone[] };
 export type PhotoSet = { key: string; label: string; note: string; views: Record<ViewKey, PhotoView> };
 
 const JL = "/vehicles/jeep-wrangler-jl";
+const RANGER = "/vehicles/ford-ranger-p703";
 
 /** Later zones sit on top of earlier ones, so small parts come after the large areas around them. */
 export const PHOTO_SETS: Record<string, PhotoSet> = {
@@ -115,6 +116,101 @@ export const PHOTO_SETS: Record<string, PhotoSet> = {
       },
     },
   },
+  "ford-ranger-p703": {
+    key: "ford-ranger-p703",
+    label: "פורד ריינג׳ר P703",
+    note: "איור להמחשה של ריינג׳ר P703 קבינה כפולה (חזית ואחור במבט אלכסוני) — לא תמונה של הרכב שלכם ולא של גרסה מסוימת.",
+    views: {
+      side: {
+        src: `${RANGER}/side.webp`,
+        w: 781,
+        h: 320,
+        zones: [
+          ["roof_rack", 0.26, 0.08, 0.67, 0.18],
+          ["rear_storage", 0.68, 0.28, 0.95, 0.6],
+          ["engine", 0.03, 0.3, 0.27, 0.44],
+          ["lighting", 0, 0.42, 0.06, 0.57],
+          ["lighting", 0.95, 0.35, 1, 0.55],
+          ["front_bumper", 0, 0.57, 0.06, 0.78],
+          ["tyres", 0.07, 0.58, 0.24, 1],
+          ["tyres", 0.7, 0.58, 0.87, 1],
+          ["front_suspension", 0.07, 0.5, 0.24, 0.6],
+          ["rear_suspension", 0.7, 0.5, 0.87, 0.6],
+          ["brakes", 0.13, 0.72, 0.17, 0.88],
+          ["brakes", 0.76, 0.72, 0.8, 0.88],
+          ["rock_sliders", 0.27, 0.74, 0.67, 0.82],
+          ["recovery_points", 0.88, 0.6, 1, 0.74],
+        ],
+      },
+      front: {
+        // three-quarter front view
+        src: `${RANGER}/front.webp`,
+        w: 781,
+        h: 450,
+        zones: [
+          ["roof_rack", 0.35, 0.05, 0.82, 0.18],
+          ["rear_storage", 0.8, 0.2, 1, 0.47],
+          ["engine", 0.08, 0.3, 0.5, 0.44],
+          ["cooling", 0.04, 0.45, 0.28, 0.63],
+          ["lighting", 0.28, 0.47, 0.39, 0.62],
+          ["lighting", 0.01, 0.44, 0.05, 0.58],
+          ["front_bumper", 0, 0.63, 0.4, 0.85],
+          ["skid_plates", 0.17, 0.85, 0.36, 0.92],
+          ["tyres", 0.36, 0.62, 0.55, 1],
+          ["tyres", 0.81, 0.47, 0.94, 0.79],
+          ["tyres", 0.02, 0.85, 0.17, 0.93],
+          ["front_suspension", 0.38, 0.52, 0.56, 0.62],
+          ["brakes", 0.43, 0.73, 0.5, 0.86],
+          ["rock_sliders", 0.56, 0.66, 0.81, 0.77],
+        ],
+      },
+      rear: {
+        // three-quarter rear view
+        src: `${RANGER}/rear.webp`,
+        w: 684,
+        h: 412,
+        zones: [
+          ["roof_rack", 0.25, 0, 0.75, 0.12],
+          ["rear_storage", 0.05, 0.25, 0.4, 0.6],
+          ["lighting", 0, 0.37, 0.05, 0.58],
+          ["lighting", 0.38, 0.42, 0.46, 0.6],
+          ["recovery_points", 0, 0.62, 0.44, 0.77],
+          ["tyres", 0.46, 0.6, 0.62, 1],
+          ["tyres", 0.85, 0.45, 0.99, 0.8],
+          ["tyres", 0.07, 0.79, 0.21, 0.95],
+          ["rear_axle", 0.22, 0.77, 0.44, 0.86],
+          ["recovery_points", 0.16, 0.74, 0.22, 0.82],
+          ["rear_suspension", 0.47, 0.5, 0.6, 0.6],
+          ["rock_sliders", 0.62, 0.63, 0.86, 0.73],
+          ["brakes", 0.52, 0.72, 0.58, 0.86],
+        ],
+      },
+      under: {
+        // seen from below, front of the vehicle on the left like the side view
+        src: `${RANGER}/under.webp`,
+        w: 704,
+        h: 294,
+        zones: [
+          ["tyres", 0.09, 0, 0.27, 0.17],
+          ["tyres", 0.09, 0.83, 0.27, 1],
+          ["tyres", 0.65, 0, 0.83, 0.17],
+          ["tyres", 0.65, 0.83, 0.83, 1],
+          ["front_bumper", 0, 0.15, 0.06, 0.85],
+          ["steering", 0.06, 0.3, 0.11, 0.7],
+          ["front_suspension", 0.12, 0.15, 0.3, 0.29],
+          ["front_suspension", 0.12, 0.71, 0.3, 0.85],
+          ["engine", 0.11, 0.29, 0.2, 0.71],
+          ["transmission", 0.2, 0.32, 0.33, 0.64],
+          ["transfer_case", 0.33, 0.4, 0.4, 0.6],
+          ["driveshafts", 0.4, 0.45, 0.7, 0.55],
+          ["rear_suspension", 0.62, 0.17, 0.92, 0.27],
+          ["rear_suspension", 0.62, 0.73, 0.92, 0.83],
+          ["rear_axle", 0.71, 0.27, 0.77, 0.73],
+          ["spare", 0.78, 0.3, 0.95, 0.72],
+        ],
+      },
+    },
+  },
 };
 
 /** Where the image sits in the W×H stage: as large as fits, wheels on the ground line. */
@@ -139,5 +235,7 @@ export function photoSetFor(input: { generationSlug?: string | null; make?: stri
   const text = `${input.make ?? ""} ${input.model ?? ""}`;
   // JL replaced the JK for model year 2018–19; only claim JL when the year rules out a JK
   if (/wrangler|רנגלר|ראנגלר/i.test(text) && (input.year ?? 0) >= 2019) return "jeep-wrangler-jl";
+  // the P703 Ranger arrived in Israel as a 2023 model; earlier years are the T6/PX
+  if (/ranger|ריינג/i.test(text) && (input.year ?? 0) >= 2023) return "ford-ranger-p703";
   return null;
 }
