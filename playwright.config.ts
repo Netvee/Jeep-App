@@ -20,7 +20,7 @@ export default defineConfig({
   ],
   webServer: {
     // Requires `npm run build` first. Uses an isolated embedded database.
-    command: `rm -rf .data/e2e && PGLITE_DIR=.data/e2e SEED_DEMO_DATA=true npx next start -p ${PORT}`,
+    command: `rm -rf .data/e2e && PGLITE_DIR=.data/e2e SEED_DEMO_DATA=true REGISTER_RATE_LIMIT=1000 npx next start -p ${PORT}`,
     url: `http://localhost:${PORT}/register`,
     reuseExistingServer: false,
     timeout: 120_000,

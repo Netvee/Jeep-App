@@ -25,7 +25,7 @@ async function clientKey() {
 export async function registerAction(_: ActionState, fd: FormData): Promise<ActionState> {
   const parsed = registerSchema.safeParse(Object.fromEntries(fd));
   if (!parsed.success) return { error: parsed.error.issues[0].message };
-  if (!rateLimit(`reg:${await clientKey()}`, 10)) return { error: "יותר מדי ניסיונות. נסו שוב מאוחר יותר." };
+  if (!rateLimit(`reg:${await clientKey()}`, Number(process.env.REGISTER_RATE_LIMIT ?? 10))) return { error: "יותר מדי ניסיונות. נסו שוב מאוחר יותר." };
   const db = await getDb();
   const { email, password, displayName } = parsed.data;
   const [exists] = await db.select({ id: users.id }).from(users).where(eq(users.email, email)).limit(1);

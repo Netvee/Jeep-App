@@ -37,6 +37,7 @@ Migrations (`./drizzle`) run automatically on first request; the reference catal
 | `PGLITE_DIR` | Optional directory for the embedded DB (default `./.data/pglite`). |
 | `ADMIN_EMAILS` | Comma-separated emails granted the admin role on register/login. |
 | `SEED_DEMO_DATA` | `true` (default) seeds labelled demo trails/parts/prices/workshops; `false` for a clean production catalogue. |
+| `REGISTER_RATE_LIMIT` | Max registrations per client IP per 10 minutes (default 10; the e2e server raises it). |
 | `NEXT_PUBLIC_TILE_URL`, `NEXT_PUBLIC_TILE_ATTRIBUTION` | Raster tile provider. Default: OpenStreetMap standard tiles (light interactive use only under the OSMF Tile Usage Policy). Use a commercial/self-hosted provider for production traffic. |
 
 No other external credentials are required. There is **no AI backend, no OBD-II integration and no payment/email service** in this release.
@@ -137,7 +138,7 @@ tests/unit|integration|e2e
 1. **Real data:** source and license Israeli trail data; verify specs against manufacturer documents; add real suppliers/prices and fitment evidence; licensed reference photos.
 2. Uploads live in Postgres — fine for a first release; move large media to object storage (S3/Supabase Storage) with signed URLs at scale.
 3. The embedded PGlite mode is single-process (dev/demo only). Use `DATABASE_URL` for any shared deployment.
-4. Rate limiting is in-memory per process; use a shared store (Redis) behind multiple instances. No email verification / password reset yet (needs an email provider).
+4. Rate limiting is in-memory per process and keys on `X-Forwarded-For` — deploy behind a proxy that sets it (otherwise it can be spoofed) and use a shared store (Redis) for multiple instances. No email verification / password reset yet (needs an email provider).
 5. Offline maps: integrate a tile provider whose licence allows offline packs (or self-hosted vector tiles) before offering tile downloads.
 6. PDF is produced by the browser's print dialog; a server-rendered PDF would need a bundled Hebrew font and bidi shaping.
 7. Community moderation is admin-only (no user flagging yet); no notifications for reminders (push/email) yet.
