@@ -25,6 +25,7 @@ const G_CLASS = "/vehicles/mercedes-g-w463";
 const TRITON = "/vehicles/mitsubishi-triton-6";
 const L200 = "/vehicles/mitsubishi-l200-5";
 const PAJERO = "/vehicles/mitsubishi-pajero-v80";
+const NAVARA = "/vehicles/nissan-navara-d23";
 
 /** Later zones sit on top of earlier ones, so small parts come after the large areas around them. */
 export const PHOTO_SETS: Record<string, PhotoSet> = {
@@ -1171,6 +1172,99 @@ export const PHOTO_SETS: Record<string, PhotoSet> = {
       },
     },
   },
+  "nissan-navara-d23": {
+    key: "nissan-navara-d23",
+    label: "ניסאן נווארה D23",
+    note: "איור להמחשה של נווארה D23 קבינה כפולה (חזית ואחור במבט אלכסוני) — לא תמונה של הרכב שלכם ולא של גרסה מסוימת.",
+    views: {
+      side: {
+        src: `${NAVARA}/side.webp`,
+        w: 783,
+        h: 364,
+        zones: [
+          ["roof_rack", 0.3, 0.05, 0.7, 0.13],
+          ["rear_storage", 0.7, 0.24, 0.96, 0.44],
+          ["engine", 0.02, 0.27, 0.3, 0.42],
+          ["lighting", 0.01, 0.42, 0.1, 0.5],
+          ["lighting", 0.94, 0.4, 0.99, 0.6],
+          ["front_bumper", 0, 0.5, 0.08, 0.72],
+          ["tyres", 0.08, 0.58, 0.27, 1],
+          ["tyres", 0.68, 0.58, 0.88, 1],
+          ["front_suspension", 0.08, 0.5, 0.27, 0.59],
+          ["rear_suspension", 0.68, 0.5, 0.88, 0.59],
+          ["brakes", 0.15, 0.73, 0.2, 0.87],
+          ["brakes", 0.75, 0.73, 0.81, 0.87],
+          ["rock_sliders", 0.28, 0.73, 0.67, 0.8],
+          ["recovery_points", 0.92, 0.62, 1, 0.75],
+        ],
+      },
+      front: {
+        // three-quarter front view
+        src: `${NAVARA}/front.webp`,
+        w: 777,
+        h: 493,
+        zones: [
+          ["roof_rack", 0.33, 0, 0.8, 0.13],
+          ["rear_storage", 0.8, 0.13, 1, 0.43],
+          ["engine", 0.04, 0.3, 0.5, 0.45],
+          ["front_bumper", 0, 0.64, 0.38, 0.86],
+          ["cooling", 0.07, 0.47, 0.25, 0.63],
+          ["cooling", 0.05, 0.67, 0.25, 0.75],
+          ["lighting", 0.01, 0.46, 0.06, 0.6],
+          ["lighting", 0.26, 0.51, 0.4, 0.63],
+          ["lighting", 0.25, 0.69, 0.34, 0.8],
+          ["tyres", 0.34, 0.65, 0.53, 1],
+          ["tyres", 0.78, 0.45, 0.94, 0.78],
+          ["tyres", 0.03, 0.82, 0.16, 0.9],
+          ["front_suspension", 0.38, 0.57, 0.53, 0.66],
+          ["brakes", 0.42, 0.77, 0.48, 0.89],
+          ["rock_sliders", 0.54, 0.63, 0.78, 0.78],
+        ],
+      },
+      rear: {
+        // three-quarter rear view
+        src: `${NAVARA}/rear.webp`,
+        w: 700,
+        h: 462,
+        zones: [
+          ["roof_rack", 0.22, 0, 0.7, 0.15],
+          ["rear_storage", 0.38, 0.25, 0.98, 0.6],
+          ["lighting", 0.55, 0.53, 0.63, 0.7],
+          ["lighting", 0.96, 0.44, 1, 0.6],
+          ["recovery_points", 0.57, 0.7, 1, 0.84],
+          ["tyres", 0, 0.38, 0.13, 0.7],
+          ["tyres", 0.35, 0.64, 0.53, 1],
+          ["tyres", 0.73, 0.84, 0.88, 0.92],
+          ["rear_suspension", 0.36, 0.56, 0.52, 0.65],
+          ["rock_sliders", 0.11, 0.6, 0.36, 0.73],
+          ["brakes", 0.39, 0.76, 0.45, 0.88],
+        ],
+      },
+      under: {
+        // seen from below, front of the vehicle on the left like the side view
+        src: `${NAVARA}/under.webp`,
+        w: 697,
+        h: 344,
+        zones: [
+          ["tyres", 0.06, 0, 0.27, 0.17],
+          ["tyres", 0.06, 0.83, 0.27, 1],
+          ["tyres", 0.7, 0, 0.92, 0.17],
+          ["tyres", 0.7, 0.83, 0.92, 1],
+          ["front_bumper", 0, 0.15, 0.05, 0.85],
+          ["front_suspension", 0.08, 0.17, 0.28, 0.35],
+          ["front_suspension", 0.08, 0.65, 0.28, 0.83],
+          ["front_axle", 0.08, 0.38, 0.16, 0.62],
+          ["transmission", 0.18, 0.4, 0.33, 0.6],
+          ["transfer_case", 0.33, 0.42, 0.4, 0.58],
+          ["driveshafts", 0.4, 0.45, 0.78, 0.55],
+          ["rear_suspension", 0.66, 0.22, 0.76, 0.42],
+          ["rear_suspension", 0.66, 0.58, 0.76, 0.78],
+          ["rear_axle", 0.78, 0.3, 0.84, 0.7],
+          ["spare", 0.84, 0.27, 0.96, 0.75],
+        ],
+      },
+    },
+  },
 };
 
 /** Where the image sits in the W×H stage: as large as fits, wheels on the ground line. */
@@ -1205,6 +1299,7 @@ export function photoSetFor(input: { generationSlug?: string | null; make?: stri
   if (/triton|טרייטון|טריטון|l200|אל 200/i.test(text) && (input.year ?? 0) >= 2024) return "mitsubishi-triton-6";
   if (/triton|טרייטון|טריטון|l200|אל 200/i.test(text) && (input.year ?? 0) >= 2015) return "mitsubishi-l200-5";
   if (/pajero|פג.?רו|montero/i.test(text) && !/sport|ספורט/i.test(text) && (input.year ?? 0) >= 2007 && (input.year ?? 0) <= 2021) return "mitsubishi-pajero-v80";
+  if (/navara|נווארה|נברה|np300/i.test(text) && (input.year ?? 0) >= 2015) return "nissan-navara-d23";
   // WL replaced the WK2 for model year 2022
   if (/grand.?cherokee|גרנד/i.test(text) && (input.year ?? 0) >= 2022) return "jeep-grand-cherokee-wl";
   if (/gladiator|גלדיאטור/i.test(text) && (input.year ?? 0) >= 2020) return "jeep-gladiator-jt";
