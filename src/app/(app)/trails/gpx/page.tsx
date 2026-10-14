@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/link";
 import { PageHeader, Notice } from "@/components/ui";
 import { GpxImporter } from "./importer";
 

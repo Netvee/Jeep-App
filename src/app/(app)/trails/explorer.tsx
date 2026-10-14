@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/link";
 import { useMemo, useState } from "react";
 import { Search, Bookmark, Map as MapIcon, List } from "lucide-react";
 import { LazyTrailMap } from "@/components/map/lazy-map";

@@ -1,7 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import Link from "next/link";
+import Link from "@/components/link";
 
 function subscribe(cb: () => void) {
   window.addEventListener("online", cb);

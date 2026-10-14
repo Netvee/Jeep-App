@@ -73,7 +73,7 @@ export function MoreMenu({ items }: { items: SecondaryItem[] }) {
       {open && (
         <div className="absolute end-0 mt-2 w-60 rounded-xl bg-white text-charcoal-900 shadow-xl border border-sand-200 py-2 z-50">
           {items.map((i) => (
-            <Link key={i.href} href={i.href} className="block px-4 py-2.5 hover:bg-sand-100 text-[15px]" aria-current={isActive(pathname, i.href) ? "page" : undefined}>
+            <Link key={i.href} href={i.href} prefetch={false} className="block px-4 py-2.5 hover:bg-sand-100 text-[15px]" aria-current={isActive(pathname, i.href) ? "page" : undefined}>
               {i.label}
             </Link>
           ))}
@@ -143,7 +143,7 @@ export function MobileTabBar({ items }: { items: SecondaryItem[] }) {
             <ul className="grid grid-cols-2 gap-2">
               {items.map((i) => (
                 <li key={i.href}>
-                  <Link href={i.href} className="flex items-center min-h-12 rounded-xl bg-sand-100 px-4 text-[15px] font-medium hover:bg-sand-200">
+                  <Link href={i.href} prefetch={false} className="flex items-center min-h-12 rounded-xl bg-sand-100 px-4 text-[15px] font-medium hover:bg-sand-200">
                     {i.label}
                   </Link>
                 </li>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/link";
 import { getGarage } from "@/server/context";
 import { Logo } from "@/components/logo";
 import { DesktopNav, MoreMenu, MobileTabBar, type SecondaryItem } from "@/components/nav";

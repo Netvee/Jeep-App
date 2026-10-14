@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/link";
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import { Input, Select } from "@/components/forms";

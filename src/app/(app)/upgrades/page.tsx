@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/link";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { AlertTriangle, Info, Lightbulb, XCircle } from "lucide-react";

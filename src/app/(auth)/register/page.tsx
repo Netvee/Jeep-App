@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/link";
 import type { Metadata } from "next";
 import { ActionForm, Field, Input, SubmitButton } from "@/components/forms";
 import { registerAction } from "@/app/actions/auth";

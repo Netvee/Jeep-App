@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/link";
 import { redirect } from "next/navigation";
 import { and, eq } from "drizzle-orm";
 import { Wrench, Settings2, Gauge, Stethoscope, Route } from "lucide-react";

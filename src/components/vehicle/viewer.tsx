@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/link";
 import { useCallback, useMemo, useRef, useState, type PointerEvent as RPointerEvent } from "react";
 import { ZoomIn, ZoomOut, RotateCcw, X, Info } from "lucide-react";
 import { COMPONENT_BY_KEY, SYSTEMS, VIEWS, SYSTEM_BY_KEY, type OverlayKey, type SystemKey, type ViewKey } from "@/lib/components";

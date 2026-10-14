@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/link";
 import { DIFFICULTY_RUBRIC } from "@/lib/trails";
 import { PageHeader, Card, Notice } from "@/components/ui";
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/link";
 import { desc, eq, isNull, or } from "drizzle-orm";
 import * as s from "@/db/schema";
 import { getGarage } from "@/server/context";

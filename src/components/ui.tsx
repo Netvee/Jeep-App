@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/link";
 import type { ComponentProps, ReactNode } from "react";
 import { FITMENT_LABEL } from "@/lib/fitment";
 import type { FitmentStatus } from "@/db/schema";

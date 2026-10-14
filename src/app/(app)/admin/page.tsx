@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/link";
 import { and, eq, isNull, lt, or, desc } from "drizzle-orm";
 import * as s from "@/db/schema";
 import { getDb } from "@/db";

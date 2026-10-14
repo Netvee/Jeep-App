@@ -218,8 +218,10 @@ test("another user cannot reach private records over HTTP", async ({ page, brows
   const ctx = await browser.newContext({ baseURL });
   const other = await ctx.newPage();
   await register(other);
-  const res = await other.goto(editHref!);
-  expect(res?.status()).toBe(404);
+  // the page streams behind a loading boundary, so the status is 200 – what matters is that nothing leaks
+  await other.goto(editHref!);
+  await expect(other.getByRole("heading", { name: "הדף לא נמצא" })).toBeVisible();
+  await expect(other.getByText("הג׳ימני של הבדיקה")).toHaveCount(0);
   const backup = await other.request.get("/api/export");
   const json = await backup.json();
   expect(JSON.stringify(json)).not.toContain("הג׳ימני של הבדיקה");
